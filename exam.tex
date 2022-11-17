@@ -1,0 +1,80 @@
+\documentclass{iexam}
+\usepackage[slovene]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage[iso,american]{isodate}
+
+\begin{document}
+
+\large
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%change according to your data
+
+% name of the subject
+\def \subject {Portali in sistemi znanja}
+% academic year
+\def \academicyear {2022-2023}
+% date of exam
+\def \examdate {15.11.2022}
+% study program
+\def \programme{ITK}
+% location of exam
+\def \location{A-306}
+% id of exam
+\def \examid{1}
+% acronym of subject
+\def \subacronym{PISZ}
+
+% prepare header
+\aboutexam{Predmet: \subject \\
+			   Študijsko leto: \academicyear \\
+			   Študijski program: \programme \\
+			   Izpitni rok: \examid \\
+			   Prostor: \location \\
+			   Datum: \examdate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent\makebox[\linewidth]{\rule{0.9\paperwidth}{0.4pt}}
+
+\begin{center}IZPIT\end{center}
+
+\vspace*{2\baselineskip}
+
+\noindent\underline{NAVODILA}
+\vspace{5mm}
+\begin{enumerate}
+\item Izpit je sestavljen iz 10 vprašanj.\\
+\item Uporaba kalkulatorja ni dovoljena. \\
+\item Zapišite le tisto, kar zahteva vprašanje. \\
+\item Napačni odgovori ne prinašajo minus točk. \\
+\end{enumerate}
+
+% put question in a new page
+\newpage
+\lhead{\examdate}
+\rhead{\academicyear}
+\chead{\subject}
+\cfoot{\thepage}
+\setlength{\footskip}{40pt}
+
+\question{1}
+Naštejte nekaj slabosti standardizacije podatkov. \hfill (3~točke)
+
+\question{2}
+Zapišite glavne značilnosti inteligentnih sistemov. \hfill (2~točki)
+
+\question{3}
+Naštejte vsaj 5 tehnik priprave podatkov in zapišite njihove značilnosti in za kakšen namen se določena tehnika uporablja? \hfill (6~točk)
+\begin{itemize}
+\item[(i)] 
+Zakaj je pomembno izvesti pripravo podatkov preden začnemo učiti klasifikator? \hfill (2~točki)
+\item[(ii)] 
+Ali je vedno potrebno izvesti postopek priprave podatkov? \hfill (2~točki)
+\item[(iii)]Kaj pomeni termin \textbf{podatkovna množica} in kako je sestavljena? \hfill (2~točki)
+\end{itemize}
+
+\end{document}
