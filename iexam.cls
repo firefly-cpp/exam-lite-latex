@@ -106,6 +106,12 @@
 \def\instructionslang#1{\def\@instructionslang{#1}}
 \newcommand{\pinstructionslang}{\@instructionslang}
 
+\def\sumpts#1{\def\@sumpts{#1}}
+\newcommand{\psumpts}{\@sumpts}
+
+\def\numberofpoints#1{\def\@numberofpoints{#1}}
+\newcommand{\pnumberofpoints}{\@numberofpoints}
+
 % use declared options
 %-----------------------------------------------------------
 
@@ -136,6 +142,7 @@
     \instructionslang{\pinstructionsslo}
     \questiontext{\pquestionslo}
     \pointstext{\ppointsslo}
+    \sumpts{Število točk: }
 
     % define a command for the logo of institution and exam information
     \newcommand{\aboutexam}[1]{
@@ -176,6 +183,7 @@
     \instructionslang{\pinstructionsang}
     \questiontext{\pquestioneng}
     \pointstext{\ppointseng}
+    \sumpts{Number of points: }
 
     % define a command for the logo of institution and exam information
     \newcommand{\aboutexam}[1]{
@@ -240,6 +248,11 @@
     \vspace{0.5cm}
     
     \pstudentid\hrulefill
+
+    \vspace{0.5cm}
+
+    %\psumpts\the\value{sum_pts}\pnumberofpoints\hrulefill
+    \psumpts\:\:\:\:\:\:\:/\pnumberofpoints
     
     \vspace*{4\baselineskip}
     
@@ -249,8 +262,10 @@
     \pinstructionslang
 }
 
+\newcounter{sum_pts}
+
 % question command - Vprašanje i
 \newcommand{\question}[1]{\paragraph{\underline{\pquestiontext{ #1}}}\hfill\\\vspace{2mm}\\}
 % question command - #1 What is ...? #2 No. pts #3 conjugation #4 vspace in cm
-\newcommand{\questionn}[4]{{\parbox{14cm}{#1}} {\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
-\newcommand{\alinea}[4]{{\parbox{12cm}{#1}} {\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
+\newcommand{\questionn}[4]{{\parbox{14cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
+\newcommand{\alinea}[4]{{\parbox{12cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}

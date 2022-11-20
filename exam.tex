@@ -1,5 +1,5 @@
 % for appropriate date format, change babel language in .cls
-\documentclass[slovene, exam]{iexam} %1: slovene, english; 2: exam, midterm
+\documentclass[english, exam]{iexam} %1: slovene, english; 2: exam, midterm
 
 \begin{document}
 
@@ -19,7 +19,8 @@
 \newdate{examdate}{18}{11}{2022}
 % acronym of subject
 \subacronym{PISZ}
-
+% TO-DO fix, manual sum of No. of points in exam
+\numberofpoints{20}
 %-----------------------------------------------------------
 
 % create first page
@@ -48,7 +49,6 @@
 \question{1}
 \questionn{Naštejte nekaj slabosti standardizacije podatkov.}{3}{e}{0}
 
-
 \question{2}
 \questionn{Zapišite glavne značilnosti inteligentnih sistemov.}{2}{i}{1}
 
@@ -68,5 +68,7 @@
     \item Pravilen
     \item Nepravilen
 \end{enumerate}
+
+% \the\value{sum_pts}
 
 \end{document}
