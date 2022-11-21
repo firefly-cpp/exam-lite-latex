@@ -3,7 +3,7 @@
 
 % include dependencies
 %-----------------------------------------------------------
-\RequirePackage[slovene]{babel}
+\RequirePackage{babel}
 \RequirePackage{graphicx}
 \RequirePackage{fancyhdr}
 \RequirePackage[skip=10pt plus1pt, indent=40pt]{parskip}
@@ -116,6 +116,9 @@
 \def\writingtimeminutes#1{\def\@writingtimeminutes{#1}}
 \newcommand{\pwritingtimeminutes}{\@writingtimeminutes}
 
+\def\grade#1{\def\@grade{#1}}
+\newcommand{\pgrade}{\@grade}
+
 % use declared options
 %-----------------------------------------------------------
 
@@ -148,6 +151,7 @@
     \pointstext{\ppointsslo}
     \sumpts{Število točk: }
     \writingtime{Čas pisanja: }
+    \grade{Ocena: }
 
     % define a command for the logo of institution and exam information
     \newcommand{\aboutexam}[1]{
@@ -190,6 +194,7 @@
     \pointstext{\ppointseng}
     \sumpts{Number of points: }
     \writingtime{Writing time: }
+    \grade{Grade: }
 
     % define a command for the logo of institution and exam information
     \newcommand{\aboutexam}[1]{
@@ -230,7 +235,7 @@
 \addtolength{\textwidth}{1.75in}
 \addtolength{\topmargin}{-.800in}
 \addtolength{\textheight}{1.75in}
-
+ \setlength{\headheight}{12.05pt}
 
 % set a little indendation for paragraphs
 \setlength{\parindent}{0.1em}
@@ -241,38 +246,33 @@
 
 \newcommand{\makefirstpage}{
     \large
-    
     \paboutexamheader
     
     \noindent\makebox[\linewidth]{\rule{0.9\paperwidth}{0.4pt}}
-
+    
     \psumpts\:\:\:\:\:\:\:/\total{sum_pts} \hfill \pwritingtime \pwritingtimeminutes min
     \vspace{-1.2cm}
- 
     \begin{center}\textbf{{\LARGE\ptypeexam}}\end{center}
-    
     \vspace{1cm}
-    
     \pnamesurname\hrulefill
-    
     \vspace{0.5cm}
     
     \pstudentid\hrulefill
-    
-    
+    \vspace{0.5cm}
+
+    \pgrade\hrulefill
     \vspace*{4\baselineskip}
     
     \noindent\underline{\pinstructions}
     \vspace{5mm}
-    
     \pinstructionslang
 }
 
-
 % question command - Question i
-\newcommand{\question}[1]{\paragraph{\underline{\pquestiontext{ #1}}}\hfill\\\vspace{2mm}\\}
+\newcommand{\qncounter}[1]{\paragraph{\underline{\pquestiontext{ #1}}}\hfill\\\vspace{2mm}\\}
 
 % question command - #1 What is ...? #2 No. pts #3 conjugation #4 vspace in cm
-\newcommand{\questionn}[4]{{\parbox{14cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
-\newcommand{\alinea}[4]{\item \!\!)\:{\parbox{12cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
+\newcommand{\question}[4]{{\parbox{14cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
 
+% alinea command - \item #1 What is ...? #2 No. pts #3 conjugation #4 vspace in cm
+\newcommand{\alinea}[4]{\item \!\!)\:{\parbox{12cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
