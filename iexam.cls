@@ -13,6 +13,7 @@
 \RequirePackage{lipsum}
 \RequirePackage{datetime}
 \RequirePackage{enumerate} % http://ctan.org/pkg/enumerate
+\RequirePackage{totcount}
 
 % global class options
 %--------------------------------------------------------------------------------------------------------------
@@ -109,8 +110,11 @@
 \def\sumpts#1{\def\@sumpts{#1}}
 \newcommand{\psumpts}{\@sumpts}
 
-\def\numberofpoints#1{\def\@numberofpoints{#1}}
-\newcommand{\pnumberofpoints}{\@numberofpoints}
+\def\writingtime#1{\def\@writingtime{#1}}
+\newcommand{\pwritingtime}{\@writingtime}
+
+\def\writingtimeminutes#1{\def\@writingtimeminutes{#1}}
+\newcommand{\pwritingtimeminutes}{\@writingtimeminutes}
 
 % use declared options
 %-----------------------------------------------------------
@@ -143,6 +147,7 @@
     \questiontext{\pquestionslo}
     \pointstext{\ppointsslo}
     \sumpts{Število točk: }
+    \writingtime{Čas pisanja: }
 
     % define a command for the logo of institution and exam information
     \newcommand{\aboutexam}[1]{
@@ -184,6 +189,7 @@
     \questiontext{\pquestioneng}
     \pointstext{\ppointseng}
     \sumpts{Number of points: }
+    \writingtime{Writing time: }
 
     % define a command for the logo of institution and exam information
     \newcommand{\aboutexam}[1]{
@@ -210,8 +216,7 @@
 			   Place: \plocation \\
 			   Date: \displaydate{examdate}}}
 }
-
-
+\newtotcounter{sum_pts}
 % process options
 %-----------------------------------------------------------
 \ProcessOptions\relax
@@ -240,19 +245,20 @@
     \paboutexamheader
     
     \noindent\makebox[\linewidth]{\rule{0.9\paperwidth}{0.4pt}}
-    
+
+    \psumpts\:\:\:\:\:\:\:/\total{sum_pts} \hfill \pwritingtime \pwritingtimeminutes min
+    \vspace{-1.2cm}
+ 
     \begin{center}\textbf{{\LARGE\ptypeexam}}\end{center}
+    
     \vspace{1cm}
+    
     \pnamesurname\hrulefill
     
     \vspace{0.5cm}
     
     \pstudentid\hrulefill
-
-    \vspace{0.5cm}
-
-    %\psumpts\the\value{sum_pts}\pnumberofpoints\hrulefill
-    \psumpts\:\:\:\:\:\:\:/\pnumberofpoints
+    
     
     \vspace*{4\baselineskip}
     
@@ -262,10 +268,11 @@
     \pinstructionslang
 }
 
-\newcounter{sum_pts}
 
-% question command - Vprašanje i
+% question command - Question i
 \newcommand{\question}[1]{\paragraph{\underline{\pquestiontext{ #1}}}\hfill\\\vspace{2mm}\\}
+
 % question command - #1 What is ...? #2 No. pts #3 conjugation #4 vspace in cm
 \newcommand{\questionn}[4]{{\parbox{14cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
-\newcommand{\alinea}[4]{{\parbox{12cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
+\newcommand{\alinea}[4]{\item \!\!)\:{\parbox{12cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
+

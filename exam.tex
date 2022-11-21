@@ -1,5 +1,5 @@
 % for appropriate date format, change babel language in .cls
-\documentclass[english, exam]{iexam} %1: slovene, english; 2: exam, midterm
+\documentclass[slovene, midterm]{iexam} %1: slovene, english; 2: exam, midterm
 
 \begin{document}
 
@@ -19,8 +19,8 @@
 \newdate{examdate}{18}{11}{2022}
 % acronym of subject
 \subacronym{PISZ}
-% TO-DO fix, manual sum of No. of points in exam
-\numberofpoints{20}
+% writing time in minutes
+\writingtimeminutes{90}
 %-----------------------------------------------------------
 
 % create first page
@@ -45,7 +45,6 @@
 % \questionn{What do you want to ask?}{No. of points}{conjugation}{vspace in cm}
 %-----------------------------------------------------------
 
-
 \question{1}
 \questionn{Naštejte nekaj slabosti standardizacije podatkov.}{3}{e}{0}
 
@@ -56,10 +55,10 @@
 \questionn{Naštejte vsaj 5 tehnik priprave podatkov in zapišite njihove značilnosti in za kakšen namen se določena tehnika uporablja?}{6}{}{0}
 
 \begin{enumerate}[i]
-    \item \alinea{Zakaj je pomembno izvesti pripravo podatkov preden začnemo učiti klasifikator?}{2}{i}{1}
-    \item \alinea{Ali je vedno potrebno izvesti postopek priprave podatkov?}{2}{i}{1}
-    \item \alinea{Kaj pomeni termin \textbf{podatkovna množica} in kako je sestavljena?}{2}{i} {1}
-    \item \alinea{Ali je vedno potrebno izvesti postopek priprave podatkov?Ali je vedno potrebno izvesti postopek priprave podatkov?Ali je vedno potrebno izvesti postopek priprave podatkov?Ali je vedno potrebno izvesti postopek priprave podatkov?Ali je vedno potrebno izvesti postopek priprave podatkov? }{2}{i} {1}
+    \alinea{Zakaj je pomembno izvesti pripravo podatkov preden začnemo učiti klasifikator?}{4}{i}{1}
+    \alinea{Ali je vedno potrebno izvesti postopek priprave podatkov?}{2}{i}{1}
+    \alinea{Kaj pomeni termin \textbf{podatkovna množica} in kako je sestavljena?}{2}{i} {1}
+    \alinea{Ali je vedno potrebno izvesti postopek priprave podatkov?Ali je vedno potrebno izvesti postopek priprave podatkov?Ali je vedno potrebno izvesti postopek priprave podatkov?Ali je vedno potrebno izvesti postopek priprave podatkov?Ali je vedno potrebno izvesti postopek priprave podatkov? }{2}{i} {1}
 \end{enumerate}
 
 \questionn{Obkroži črko pred pravilnim odgovorom}{1}{}{0}
@@ -68,7 +67,5 @@
     \item Pravilen
     \item Nepravilen
 \end{enumerate}
-
-% \the\value{sum_pts}
 
 \end{document}
