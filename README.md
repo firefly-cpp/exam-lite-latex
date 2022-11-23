@@ -1,5 +1,9 @@
 # exam-latex
 
+<p align="center">
+  <img alt="logo" width="300" src="imgs/logo_exam.png">
+</p>
+
 ## Disclaimer
 This framework is provided as-is, and there are no guarantees that it fits your purposes or that it is bug-free. Use it at your own risk!
 
