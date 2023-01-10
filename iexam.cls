@@ -140,8 +140,8 @@
 %-----------------------------------------------------------
 \DeclareOption{slovene}{%
     \if\examtype1\typeexam{IZPIT}\fi
-    \if\examtype2\typeexam{KOLOKVIJ}\fi
-    \if\examtype1\examperiod{Kolokvij: }\fi
+    \if\examtype2\typeexam{VMESNI IZPIT}\fi
+    \if\examtype1\examperiod{Vmesni izpit: }\fi
     \if\examtype2\examperiod{Izpitni rok: }\fi
     \namesurname{Ime in Priimek:}
     \studentid{ID Študenta:}
