@@ -82,30 +82,8 @@
 \def\instructionsslo#1{\def\@instructionsslo{#1}}
 \newcommand{\pinstructionsslo}{\@instructionsslo}
 
-
-\instructionsslo{
-    \begin{enumerate}
-        \item Izpit je sestavljen iz 10 vprašanj.\\
-        \item Uporaba kalkulatorja ni dovoljena. \\
-        \item Zapišite le tisto, kar zahteva vprašanje. \\
-        \item Napačni odgovori ne prinašajo minus točk. \\
-    \end{enumerate}
-}
-   
-\def\instructionsang#1{\def\@instructionsang{#1}}
-\newcommand{\pinstructionsang}{\@instructionsang}
-
-\instructionsang{
-    \begin{enumerate}
-        \item The exam consists of 10 questions.\\
-        \item The use of a calculator is not allowed.\\
-        \item Write only what the question asks for.\\
-        \item You do not get minus points for wrong answers.\\
-    \end{enumerate}
-}
-
-\def\instructionslang#1{\def\@instructionslang{#1}}
-\newcommand{\pinstructionslang}{\@instructionslang}
+\def\instructionstext#1{\def\@instructionstext{#1}}
+\newcommand{\pinstructionstext}{\@instructionstext}
 
 \def\sumpts#1{\def\@sumpts{#1}}
 \newcommand{\psumpts}{\@sumpts}
@@ -146,7 +124,6 @@
     \namesurname{Ime in Priimek:}
     \studentid{ID Študenta:}
     \instructions{NAVODILA}
-    \instructionslang{\pinstructionsslo}
     \questiontext{\pquestionslo}
     \pointstext{\ppointsslo}
     \sumpts{Število točk: }
@@ -189,7 +166,6 @@
     \namesurname{Name and Surname:}
     \studentid{Student ID:}
     \instructions{INSTRUCTIONS}
-    \instructionslang{\pinstructionsang}
     \questiontext{\pquestioneng}
     \pointstext{\ppointseng}
     \sumpts{Number of points: }
@@ -243,7 +219,8 @@
 % space between paragraphs
 \setlength{\parskip}{1em}
 
-
+% First page
+%-----------------------------------------------------------
 \newcommand{\makefirstpage}{
     \large
     \paboutexamheader
@@ -265,14 +242,32 @@
     
     \noindent\underline{\pinstructions}
     \vspace{5mm}
-    \pinstructionslang
+    \pinstructionstext
 }
+
+% Header of all pages but first
+%-----------------------------------------------------------
+\newcommand{\makenextheaders}{
+    \newpage % put question in a new page
+    \lhead{\displaydate{examdate}}
+    \rhead{\pacademicyear}
+    \chead{{\large\psubject}}
+    % space between head and first question (text)
+    \setlength{\headsep}{0.4in}
+    \cfoot{\thepage}
+    \setlength{\footskip}{30pt}
+}
+
+% header of question pages
+%-----------------------------------------------------------
 
 % question command - Question i
 \newcommand{\qncounter}[1]{\paragraph{\underline{\pquestiontext{ #1}}}\hfill\\\vspace{2mm}\\}
 
 % question command - #1 What is ...? #2 No. pts #3 conjugation #4 vspace in cm
-\newcommand{\question}[4]{{\parbox{14cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
+\newcommand{\question}[4]{{\parbox{14cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill\textsc{(#2~\ppointstext#3)}}{\vspace{#4 cm}}}
+
+\newcommand{\longquestion}[4]{{\parbox{16.5cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill\\\hspace*{\fill}\textsc{(#2~\ppointstext#3)}{\vspace{#4 cm}}}}
 
 % alinea command - \item #1 What is ...? #2 No. pts #3 conjugation #4 vspace in cm
-\newcommand{\alinea}[4]{\item \!\!)\:{\parbox{12cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill(#2~\ppointstext#3)}{\vspace{#4 cm}}}
+\newcommand{\alinea}[4]{\item \!\!)\:{\parbox{12cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill\textsc{(#2~\ppointstext#3)}{\vspace{#4 cm}}}}

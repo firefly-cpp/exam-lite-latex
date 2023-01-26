@@ -20,28 +20,36 @@
 \subacronym{PISZ}
 % writing time in minutes
 \writingtimeminutes{90}
+% instructions
+\instructionstext{
+    \begin{enumerate}
+        \item The exam consists of 10 questions.\\
+        \item The use of a calculator is not allowed.\\
+        \item Write only what the question asks for.\\
+        \item You do not get minus points for wrong answers.\\
+    \end{enumerate}
+}
+
+%\instructionstext{
+    %\begin{enumerate}
+        %\item Izpit je sestavljen iz 10 vprašanj.\\
+        %\item Uporaba kalkulatorja ni dovoljena. \\
+        %\item Zapišite le tisto, kar zahteva vprašanje. \\
+        %\item Napačni odgovori ne prinašajo minus točk. \\
+    %\end{enumerate}
+%}
 %-----------------------------------------------------------
 
 % create first page
 %-----------------------------------------------------------
 \makefirstpage
 %-----------------------------------------------------------
-
-% header of question pages
+\makenextheaders
 %-----------------------------------------------------------
-\newpage % put question in a new page
-\lhead{\displaydate{examdate}}
-\rhead{\pacademicyear}
-\chead{{\large\psubject}}
-% space between head and first question (text)
-\setlength{\headsep}{0.4in}
-\cfoot{\thepage}
-\setlength{\footskip}{30pt}
-%-----------------------------------------------------------
-
 % questions of the exam
 % sytnax
-% \questionn{What do you want to ask?}{No. of points}{conjugation}{vspace in cm}
+% \qncounter{No. of question}
+% \question{What do you want to ask?}{No. of points}{conjugation}{vspace in cm}
 %-----------------------------------------------------------
 
 \qncounter{1}
@@ -58,11 +66,15 @@
     \alinea{Kaj pomeni termin \textbf{podatkovna množica} in kako je sestavljena?}{1}{}{1}
 \end{enumerate}
 
+\qncounter{4}
 \question{Obkroži črko pred pravilnim odgovorom}{1}{}{0}
 \begin{enumerate}
     \item Testni
     \item Pravilen
     \item Nepravilen
 \end{enumerate}
+
+\qncounter{5}
+\longquestion{Naštejte nekaj slabosti standardizacije podatkov.Naštejte nekaj slabosti standardizacije podatkov.Naštejte nekaj slabosti standardizacije podatkov.Naštejte nekaj slabosti standardizacije podatkov.Naštejte nekaj slabosti standardizacije podatkov.Naštejte nekaj slabosti standardizacije podatkov.}{2}{s}{1}
 
 \end{document}
