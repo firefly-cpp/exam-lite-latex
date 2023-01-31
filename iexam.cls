@@ -15,9 +15,14 @@
 \RequirePackage{enumerate} % http://ctan.org/pkg/enumerate
 \RequirePackage{totcount}
 
+
 % global class options
 %--------------------------------------------------------------------------------------------------------------
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+
+% Path to logo image
+\def\ImagePath#1{\def\@ImagePath{#1}}
+\newcommand{\pImagePath}{\@ImagePath}
 
 \def\examlanguage#1{\def\@examlanguage{#1}}
 \newcommand{\pexamlanguage}{\@examlanguage}
@@ -139,7 +144,7 @@
         \pagestyle{fancy}
             \fancyhf{}
             % show logo of author's institution on the left side
-            \fancyhead[L]{\raisebox{\dimexpr-\height+\baselineskip}[0pt][0pt]{\includegraphics[width=2.2in]{imgs/um-logo.png}}}
+            \fancyhead[L]{\raisebox{\dimexpr-\height+\baselineskip}[0pt][0pt]{\includegraphics[width=5cm, height=4cm, keepaspectratio]{\pImagePath}}}
             % show exam information on right side
             \fancyhead[R]{\leavevmode\large
             \begin{tabular}[t]{l@{}}
@@ -154,6 +159,31 @@
 			   \pexamperiod \pexamid \\
 			   Prostor: \plocation \\
 			   Datum: \displaydate{examdate}}}
+      
+\newcommand{\@Conjugation}{Unknown}
+\newcommand{\Conjugation}[1]{\renewcommand{\@Conjugation}{#1}}
+\newcommand{\Apply@Conjugation}{%
+    \begingroup
+        \long\def\@one{1}\long\def\@two{2}\long\def\@three{3}\long\def\@four{4}%
+            \ifx\@Conjugation\@one 
+                a)%
+            \else
+            \ifx\@Conjugation\@two
+                i)%
+            \else
+            \ifx\@Conjugation\@three
+                e)%
+           \else
+           \ifx\@Conjugation\@four
+                e)% Due to only 1 "all-"else option - this entry is duplicated
+            \else
+                )%
+            \fi
+            \fi
+            \fi
+            \fi
+    \endgroup
+    }
 }
 
 % english version
@@ -181,7 +211,7 @@
         \pagestyle{fancy}
           \fancyhf{}
            % show logo of author's institution on the left side
-          \fancyhead[L]{\raisebox{\dimexpr-\height+\baselineskip}[0pt][0pt]{\includegraphics[width=2.2in]{imgs/logo-um-feri-ang.png}}}
+          \fancyhead[L]{\raisebox{\dimexpr-\height+\baselineskip}[0pt][0pt]{\includegraphics[width=6cm, height=3.5cm, keepaspectratio]{\pImagePath}}}
           % show exam information on right side
           \fancyhead[R]{\leavevmode\large
           \begin{tabular}[t]{l@{}}
@@ -196,6 +226,20 @@
 			   \pexamperiod \pexamid \\
 			   Place: \plocation \\
 			   Date: \displaydate{examdate}}}
+
+\newcommand{\@Conjugation}{Unknown}
+\newcommand{\Conjugation}[1]{\renewcommand{\@Conjugation}{#1}}
+\newcommand{\Apply@Conjugation}{%
+    \begingroup
+        \long\def\@one{1}%
+            \ifx\@Conjugation\@one 
+                )%
+            \else
+                s)%
+            \fi
+    \endgroup
+    }
+      
 }
 \newtotcounter{sum_pts}
 % process options
@@ -258,16 +302,23 @@
     \setlength{\footskip}{30pt}
 }
 
+
+%-----------------------------------------------------------
+
+
+
+%-----------------------------------------------------------
+
 % header of question pages
 %-----------------------------------------------------------
 
 % question command - Question i
 \newcommand{\qncounter}[1]{\paragraph{\underline{\pquestiontext{ #1}}}\hfill\\\vspace{2mm}\\}
 
-% question command - #1 What is ...? #2 No. pts #3 conjugation #4 vspace in cm
-\newcommand{\question}[4]{{\parbox{14cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill\textsc{(#2~\ppointstext#3)}}{\vspace{#4 cm}}}
+% question command - #1 What is ...? #2 No. pts #3 vspace in cm
+\newcommand{\question}[3]{{\parbox{14cm}{#1}} {\Conjugation{#2} \addtocounter{sum_pts}{#2}\hfill\textsc{(#2~\ppointstext\Apply@Conjugation}}{\vspace{#3 cm}}}
 
-\newcommand{\longquestion}[4]{{\parbox{16.5cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill\\\hspace*{\fill}\textsc{(#2~\ppointstext#3)}{\vspace{#4 cm}}}}
+\newcommand{\longquestion}[3]{{\parbox{16.5cm}{#1}} {\Conjugation{#2} \addtocounter{sum_pts}{#2}\hfill\\\hspace*{\fill}\textsc{(#2~\ppointstext\Apply@Conjugation}}{\vspace{#3 cm}}}
 
-% alinea command - \item #1 What is ...? #2 No. pts #3 conjugation #4 vspace in cm
-\newcommand{\alinea}[4]{\item \!\!)\:{\parbox{12cm}{#1}} {\addtocounter{sum_pts}{#2}\hfill\textsc{(#2~\ppointstext#3)}{\vspace{#4 cm}}}}
+% alinea command - \item #1 What is ...? #2 No. pts #3 vspace in cm
+\newcommand{\alinea}[3]{\item \!\!)\:{\parbox{12cm}{#1}} {\Conjugation{#2} \addtocounter{sum_pts}{#2}\hfill\textsc{(#2~\ppointstext\Apply@Conjugation}{\vspace{#3 cm}}}}
