@@ -1,5 +1,4 @@
-% for appropriate date format, change babel language in .cls
-\documentclass[english, midterm]{iexam} %1: slovene, english; 2: exam, midterm
+\documentclass[slovene, midterm]{iexam} %1: slovene, english; 2: exam, midterm
 \begin{document}
 
 % change according to your data
@@ -20,7 +19,9 @@
 \subacronym{PISZ}
 % writing time in minutes
 \writingtimeminutes{90}
-% instructions
+
+% predefined instructions in english
+\iffalse % multi-line coment
 \instructionstext{
     \begin{enumerate}
         \item The exam consists of 10 questions.\\
@@ -29,15 +30,16 @@
         \item You do not get minus points for wrong answers.\\
     \end{enumerate}
 }
-
-%\instructionstext{
-    %\begin{enumerate}
-        %\item Izpit je sestavljen iz 10 vprašanj.\\
-        %\item Uporaba kalkulatorja ni dovoljena. \\
-        %\item Zapišite le tisto, kar zahteva vprašanje. \\
-        %\item Napačni odgovori ne prinašajo minus točk. \\
-    %\end{enumerate}
-%}
+\fi % end of multi-line coment
+% predefined instructions in slovene
+\instructionstext{
+    \begin{enumerate}
+        \item Izpit je sestavljen iz 10 vprašanj.\\
+        \item Uporaba kalkulatorja ni dovoljena. \\
+        \item Zapišite le tisto, kar zahteva vprašanje. \\
+        \item Napačni odgovori ne prinašajo minus točk. \\
+    \end{enumerate}
+}
 %-----------------------------------------------------------
 
 % create first page
@@ -59,11 +61,11 @@
 \question{Zapišite glavne značilnosti inteligentnih sistemov.}{2}{s}{1}
 
 \qncounter{3}
-\question{Naštejte vsaj 5 tehnik priprave podatkov in zapišite njihove značilnosti in za kakšen namen se določena tehnika uporablja?}{6}{s}{0}
+\longquestion{Naštejte vsaj 5 tehnik priprave podatkov in zapišite njihove značilnosti in za kakšen namen se določena tehnika uporablja?}{6}{s}{0}
 
 \begin{enumerate}[i]
-    \alinea{Zakaj je pomembno izvesti pripravo podatkov preden začnemo učiti klasifikator?}{4}{s}{1}
-    \alinea{Kaj pomeni termin \textbf{podatkovna množica} in kako je sestavljena?}{1}{}{1}
+    \alinea{Zakaj je pomembno izvesti pripravo podatkov preden začnemo učiti klasifikator?}{4}{s}{2}
+    \alinea{Kaj pomeni termin \textbf{podatkovna množica} in kako je sestavljena?}{1}{}{2}
 \end{enumerate}
 
 \qncounter{4}
