@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{iexam}[2022/11/17 Latex template for exams]
+\ProvidesClass{exam-lite}[2022/11/17 Very simple Latex template for exams]
 
 % include dependencies
 %-----------------------------------------------------------
