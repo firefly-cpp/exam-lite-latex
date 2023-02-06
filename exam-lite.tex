@@ -8,17 +8,17 @@
 %\ImagePath{imgs/logo-um-feri-ang.png} % English FERI UM logo
 \ImagePath{imgs/affl-logo.png} % logo example
 % name of the subject
-\subject{Portali in sistemi znanja}
+\subject{Interesting computer science}
 % academic year
 \academicyear{2022-2023}
 % study program
-\programme{ITK}
+\studyprogram{Prog-I}
 % id of exam
 \examid{1}
 % location of exam
-\location{A-306}
+\location{A-1}
 % date of exam
-\newdate{examdate}{18}{11}{2022}
+\newdate{examdate}{07}{02}{2022}
 % acronym of subject
 \subacronym{PISZ}
 % writing time in minutes
@@ -52,10 +52,16 @@
 %-----------------------------------------------------------
 \makenextheaders
 %-----------------------------------------------------------
-% questions of the exam
-% SYNTAX
-% \qncounter{No. of question}
-% \question{What do you want to ask?}{No. of points}{vspace in cm}
+% SYNTAX questions of the exam
+%-----------------------------------------------------------
+% Question Number
+% \qncounter{Number}
+% Points next to question
+% \question{What do you want to ask?}{No. of points}{vspace in cm} 
+% Points under question
+% \longquestion{What do you want to ask?}{No. of points}{vspace in cm}
+% Used in begin enumerate/itemize - question with multiple subquestions
+% \alinea{What do you want to ask?}{No. of points}{vspace in cm} 
 %-----------------------------------------------------------
 \makeatletter
 % Set page coutner to 1 - First page with questions
@@ -68,11 +74,11 @@
 \question{Write down the main features of intelligent systems.}{2}{1}
 
 \qncounter{3}
-\longquestion{Please list at least 5 data preparation techniques, write down their characteristics, and for what purposes these methods are used.}{6}{0}
+\longquestion{Please list at least 5 data preparation techniques, write down their characteristics, and for what purposes these methods are used.}{5}{0}
 
 \begin{enumerate}[i]
-    \alinea{Why is it important to perform data preparation before starting to learn a classifier?}{4}{2}
-    \alinea{What is meant by the term \textbf{dataset}, and how is it constructed?}{1}{1}
+    \alinea{Why is it important to perform data preparation before starting to learn a classifier?}{3}{3}
+    \alinea{What is meant by the term \textbf{dataset}, and how is it constructed?}{2}{2}
 \end{enumerate}
 
 \qncounter{4}
