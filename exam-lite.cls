@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{exam-lite}[2022/11/17 Very simple Latex template for exams]
+\ProvidesClass{exam-lite}[2023/02/06 Very simple Latex template for exams]
 
 % include dependencies
 %-----------------------------------------------------------
@@ -12,7 +12,7 @@
 \RequirePackage{framed}
 \RequirePackage{lipsum}
 \RequirePackage{datetime}
-\RequirePackage{enumerate} % http://ctan.org/pkg/enumerate
+\RequirePackage{enumerate} 
 \RequirePackage{totcount}
 
 
@@ -24,68 +24,65 @@
 \def\ImagePath#1{\def\@ImagePath{#1}}
 \newcommand{\pImagePath}{\@ImagePath}
 
+% Language of the exam
 \def\examlanguage#1{\def\@examlanguage{#1}}
 \newcommand{\pexamlanguage}{\@examlanguage}
 
+% Name of the subject
 \def\subject#1{\def\@subject{#1}}
 \newcommand{\psubject}{\@subject}
 
+% Academic year
 \def\academicyear#1{\def\@academicyear{#1}}
 \newcommand{\pacademicyear}{\@academicyear}
 
+% Date of the exam
 \def\examdate#1{\def\@examdate{#1}}
 \newcommand{\pexamdate}{\@examdate}
 
-\def\programme#1{\def\@programme{#1}}
-\newcommand{\pprogramme}{\@programme}
+% Study program
+\def\studyprogram#1{\def\@studyprogram{#1}}
+\newcommand{\pstudyprogram}{\@studyprogram}
 
+% Location of the exam (usually classroom label)
 \def\location#1{\def\@location{#1}}
 \newcommand{\plocation}{\@location}
 
+% Exam period
+\def\examperiod#1{\def\@examperiod{#1}}
+\newcommand{\pexamperiod}{\@examperiod}
+
+% Exam period, usually number (one subject has one or more exams)
 \def\examid#1{\def\@examid{#1}}
 \newcommand{\pexamid}{\@examid}
 
+% Subacronym of the subject
 \def\subacronym#1{\def\@subacronym{#1}}
 \newcommand{\psubacronym}{\@subacronym}
 
 % Name and Surname of the student
 \def\namesurname#1{\def\@namesurname{#1}}
 \newcommand{\pnamesurname}{\@namesurname}
-% ID Student
+
+% ID  of the student
 \def\studentid#1{\def\@studentid{#1}}
 \newcommand{\pstudentid}{\@studentid}
 
-\def\examperiod#1{\def\@examperiod{#1}}
-\newcommand{\pexamperiod}{\@examperiod}
-
+% Instructions
 \def\instructions#1{\def\@instructions{#1}}
 \newcommand{\pinstructions}{\@instructions}
 
-\def\questioneng#1{\def\@questioneng{#1}}
-\newcommand{\pquestioneng}{\@questioneng}
-\questioneng{Question}
-
-\def\questionslo#1{\def\@questionslo{#1}}
-\newcommand{\pquestionslo}{\@questionslo}
-\questionslo{Vpra\v{s}anje}
-
+% Question (translation)
 \def\questiontext#1{\def\@questiontext{#1}}
 \newcommand{\pquestiontext}{\@questiontext}
 
-\def\pointseng#1{\def\@pointseng{#1}}
-\newcommand{\ppointseng}{\@pointseng}
-\pointseng{point}
-
-\def\pointsslo#1{\def\@pointsslo{#1}}
-\newcommand{\ppointsslo}{\@pointsslo}
-\pointsslo{to\v{c}k}
-
+% Question (translation)
 \def\pointstext#1{\def\@pointstext{#1}}
 \newcommand{\ppointstext}{\@pointstext}
 
-
-\def\instructionsslo#1{\def\@instructionsslo{#1}}
-\newcommand{\pinstructionsslo}{\@instructionsslo}
+% Points (translation)
+\def\points#1{\def\@points{#1}}
+\newcommand{\ppoints}{\@points}
 
 \def\instructionstext#1{\def\@instructionstext{#1}}
 \newcommand{\pinstructionstext}{\@instructionstext}
@@ -109,6 +106,7 @@
 \DeclareOption{exam}{%
     \def\examtype{1} % 1: izpit-exam, 2: kolokvij-midterm
 }
+% language of the midterm
 \DeclareOption{midterm}{%
     \def\examtype{2} % 1: izpit-exam, 2: kolokvij-midterm   
 }
@@ -118,8 +116,8 @@
 
 \def\aboutexamheader#1{\def\@aboutexamheader{#1}}
 \newcommand{\paboutexamheader}{\@aboutexamheader}
-
-% slovene version
+%-----------------------------------------------------------
+% Slovene version
 %-----------------------------------------------------------
 \DeclareOption{slovene}{%
     \if\examtype1\typeexam{IZPIT}\fi
@@ -129,13 +127,13 @@
     \namesurname{Ime in Priimek:}
     \studentid{ID Študenta:}
     \instructions{NAVODILA}
-    \questiontext{\pquestionslo}
-    \pointstext{\ppointsslo}
+    \questiontext{Vpra\v{s}anje}
+    \pointstext{to\v{c}k}
     \sumpts{Število točk: }
     \writingtime{Čas pisanja: }
     \grade{Ocena: }
 
-    % define a command for the logo of institution and exam information
+    % Define a command for the logo of institution and exam information
     \newcommand{\aboutexam}[1]{
         \noindent
         \fancyfoot{}
@@ -143,9 +141,9 @@
         \renewcommand{\footrulewidth}{0pt}
         \pagestyle{fancy}
             \fancyhf{}
-            % show logo of author's institution on the left side
+            % Show logo of author's institution on the left side
             \fancyhead[L]{\raisebox{\dimexpr-\height+\baselineskip}[0pt][0pt]{\includegraphics[width=5cm, height=4cm, keepaspectratio]{\pImagePath}}}
-            % show exam information on right side
+            % Show exam information on right side
             \fancyhead[R]{\leavevmode\large
             \begin{tabular}[t]{l@{}}
                 #1
@@ -155,7 +153,7 @@
 
     \aboutexamheader{\aboutexam{Predmet: \psubject \\
 			   Študijsko leto: \pacademicyear \\
-			   Študijski program: \pprogramme \\
+			   Študijski program: \pstudyprogram \\
 			   \pexamperiod \pexamid \\
 			   Prostor: \plocation \\
 			   Datum: \displaydate{examdate}}}
@@ -185,8 +183,8 @@
     \endgroup
     }
 }
-
-% english version
+%-----------------------------------------------------------
+% English version
 %-----------------------------------------------------------
 \DeclareOption{english}{%
     \if\examtype1\typeexam{EXAM}\fi
@@ -196,13 +194,13 @@
     \namesurname{Name and Surname:}
     \studentid{Student ID:}
     \instructions{INSTRUCTIONS}
-    \questiontext{\pquestioneng}
-    \pointstext{\ppointseng}
+    \questiontext{Question}
+    \pointstext{point}
     \sumpts{Number of points: }
     \writingtime{Writing time: }
     \grade{Grade: }
 
-    % define a command for the logo of institution and exam information
+    % Define a command for the logo of institution and exam information
     \newcommand{\aboutexam}[1]{
         \noindent
         \fancyfoot{}
@@ -222,7 +220,7 @@
 
     \aboutexamheader{\aboutexam{Subject: \psubject \\
 			   Study year: \pacademicyear \\
-			   Study program: \pprogramme \\
+			   Study program: \pstudyprogram \\
 			   \pexamperiod \pexamid \\
 			   Place: \plocation \\
 			   Date: \displaydate{examdate}}}
@@ -242,14 +240,15 @@
       
 }
 \newtotcounter{sum_pts}
-% process options
+%-----------------------------------------------------------
+% Process options
 %-----------------------------------------------------------
 \ProcessOptions\relax
-% load class
+% Load class
 \LoadClass[a4paper,onecolumn]{article}
 %--------------------------------------------------------------------------------------------------------------
-
-% set margins
+% Set page margins
+%-----------------------------------------------------------
 \addtolength{\oddsidemargin}{-.800in}
 \addtolength{\evensidemargin}{-.800in}
 \addtolength{\textwidth}{1.75in}
@@ -257,12 +256,12 @@
 \addtolength{\textheight}{1.75in}
  \setlength{\headheight}{12.05pt}
 
-% set a little indendation for paragraphs
+% Set a little indendation for paragraphs
 \setlength{\parindent}{0.1em}
 
-% space between paragraphs
+% Space between paragraphs
 \setlength{\parskip}{1em}
-
+%-----------------------------------------------------------
 % First page
 %-----------------------------------------------------------
 \newcommand{\makefirstpage}{
@@ -288,7 +287,7 @@
     \vspace{5mm}
     \pinstructionstext
 }
-
+%-----------------------------------------------------------
 % Header of all pages but first
 %-----------------------------------------------------------
 \newcommand{\makenextheaders}{
@@ -301,24 +300,18 @@
     \cfoot{\thepage}
     \setlength{\footskip}{30pt}
 }
-
-
+%-----------------------------------------------------------
+% Commands for questions
 %-----------------------------------------------------------
 
-
-
-%-----------------------------------------------------------
-
-% header of question pages
-%-----------------------------------------------------------
-
-% question command - Question i
+% Question counter command - Question i
 \newcommand{\qncounter}[1]{\paragraph{\underline{\pquestiontext{ #1}}}\hfill\\\vspace{2mm}\\}
 
-% question command - #1 What is ...? #2 No. pts #3 vspace in cm
+% Basic Question command - #1 What is ...? #2 No. pts #3 vspace in cm (points next to question)
 \newcommand{\question}[3]{{\parbox{14cm}{#1}} {\Conjugation{#2} \addtocounter{sum_pts}{#2}\hfill\textsc{(#2~\ppointstext\Apply@Conjugation}}{\vspace{#3 cm}}}
 
+% Long Question command - #1 What is ...? #2 No. pts #3 vspace in cm (points under question)
 \newcommand{\longquestion}[3]{{\parbox{16.5cm}{#1}} {\Conjugation{#2} \addtocounter{sum_pts}{#2}\hfill\\\hspace*{\fill}\textsc{(#2~\ppointstext\Apply@Conjugation}}{\vspace{#3 cm}}}
 
-% alinea command - \item #1 What is ...? #2 No. pts #3 vspace in cm
+% Alinea command - \item #1 What is ...? #2 No. pts #3 vspace in cm
 \newcommand{\alinea}[3]{\item \!\!)\:{\parbox{12cm}{#1}} {\Conjugation{#2} \addtocounter{sum_pts}{#2}\hfill\textsc{(#2~\ppointstext\Apply@Conjugation}{\vspace{#3 cm}}}}
