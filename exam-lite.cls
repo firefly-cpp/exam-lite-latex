@@ -1,3 +1,6 @@
+% Author: Rok Kukovec and Iztok Fister Jr.
+% CC-BY-SA-4.0 license 
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{exam-lite}[2023/02/06 Very simple Latex template for exams]
 
@@ -124,8 +127,8 @@
     \if\examtype2\typeexam{VMESNI IZPIT}\fi
     \if\examtype1\examperiod{Vmesni izpit: }\fi
     \if\examtype2\examperiod{Izpitni rok: }\fi
-    \namesurname{Ime in Priimek:}
-    \studentid{ID Študenta:}
+    \namesurname{Ime in Priimek: }
+    \studentid{ID Študenta: }
     \instructions{NAVODILA}
     \questiontext{Vpra\v{s}anje}
     \pointstext{to\v{c}k}
@@ -191,8 +194,8 @@
     \if\examtype2\typeexam{MIDTERM}\fi
     \if\examtype1\examperiod{Exam period: }\fi
     \if\examtype2\examperiod{Midterm: }\fi
-    \namesurname{Name and Surname:}
-    \studentid{Student ID:}
+    \namesurname{Name and Surname: }
+    \studentid{Student ID: }
     \instructions{INSTRUCTIONS}
     \questiontext{Question}
     \pointstext{point}
