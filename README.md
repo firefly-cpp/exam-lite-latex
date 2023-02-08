@@ -17,6 +17,9 @@ The template is devoted to the quicker preparation of exams in LaTex.
 - Many macros contained in this package speed up the process of preparing the necessary ingredients for the exam
 - Automatic calculation of total points
 
+## Download/Install
+Please install the `exam-lite` package through the package manager of your TeX distribution or download it directly from: [CTAN](https://ctan.org/pkg/exam-lite).
+
 ## Disclaimer
 This framework is provided as-is, and there are no guarantees that it fits your purposes or that it is bug-free. Use it at your own risk!
 
