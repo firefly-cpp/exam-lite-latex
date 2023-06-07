@@ -20,6 +20,11 @@ The template is devoted to the quicker preparation of exams in LaTex.
 ## Download/Install
 Please install the `exam-lite` package through the package manager of your TeX distribution or download it directly from: [CTAN](https://ctan.org/pkg/exam-lite).
 
+## Related templates
+
+[A cover letter template for a journal paper submission in LaTex](https://github.com/firefly-cpp/cover-letter-latex)
+[A LaTeX template for a journal rebuttal letter (response to editors/reviewers)](https://github.com/firefly-cpp/latex-response-reviewers)
+
 ## Disclaimer
 This framework is provided as-is, and there are no guarantees that it fits your purposes or that it is bug-free. Use it at your own risk!
 
