@@ -1,7 +1,6 @@
 # A simple template for preparing exams in LaTex
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![CTAN](https://img.shields.io/ctan/v/exam-lite.svg)](https://ctan.org/pkg/exam-lite)
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center">
   <img alt="logo" width="300" src="imgs/logo_exam.png">
