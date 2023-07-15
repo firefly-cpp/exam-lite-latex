@@ -308,13 +308,15 @@
 %-----------------------------------------------------------
 
 % Question counter command - Question i
-\newcommand{\qncounter}[1]{\paragraph{\underline{\pquestiontext{ #1}}}\hfill\\\vspace{2mm}\\}
+\newcommand{\autoqncounter}[1]{\paragraph{\underline{\pquestiontext{ #1}}}\hfill\\\vspace{2mm}\\}
+
+\newcounter{questionnumbercounter}
 
 % Basic Question command - #1 What is ...? #2 No. pts #3 vspace in cm (points next to question)
-\newcommand{\question}[3]{{\parbox{14cm}{#1}} {\Conjugation{#2} \addtocounter{sum_pts}{#2}\hfill\textsc{(#2~\ppointstext\Apply@Conjugation}}{\vspace{#3 cm}}}
+\newcommand{\question}[3]{\stepcounter{questionnumbercounter}\autoqncounter{\thequestionnumbercounter}{\parbox{14cm}{#1}} {\Conjugation{#2} \addtocounter{sum_pts}{#2}\hfill\textsc{(#2~\ppointstext\Apply@Conjugation}}{\vspace{#3 cm}}}
 
 % Long Question command - #1 What is ...? #2 No. pts #3 vspace in cm (points under question)
-\newcommand{\longquestion}[3]{{\parbox{16.5cm}{#1}} {\Conjugation{#2} \addtocounter{sum_pts}{#2}\hfill\\\hspace*{\fill}\textsc{(#2~\ppointstext\Apply@Conjugation}}{\vspace{#3 cm}}}
+\newcommand{\longquestion}[3]{\stepcounter{questionnumbercounter}\autoqncounter{\thequestionnumbercounter}{\parbox{16.5cm}{#1}} {\Conjugation{#2} \addtocounter{sum_pts}{#2}\hfill\\\hspace*{\fill}\textsc{(#2~\ppointstext\Apply@Conjugation}}{\vspace{#3 cm}}}
 
 % Alinea command - \item #1 What is ...? #2 No. pts #3 vspace in cm
 \newcommand{\alinea}[3]{\item \!\!)\:{\parbox{12cm}{#1}} {\Conjugation{#2} \addtocounter{sum_pts}{#2}\hfill\textsc{(#2~\ppointstext\Apply@Conjugation}{\vspace{#3 cm}}}}
