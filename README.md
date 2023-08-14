@@ -1,5 +1,7 @@
 # A simple template for preparing exams in LaTex
 [![CTAN](https://img.shields.io/ctan/v/exam-lite.svg)](https://ctan.org/pkg/exam-lite)
+![GitHub repo size](https://img.shields.io/github/repo-size/firefly-cpp/exam-lite-latex?style=flat-square)
+[![GitHub license](https://img.shields.io/github/license/firefly-cpp/exam-lite-latex.svg)](https://github.com/firefly-cpp/exam-lite-latex/blob/master/LICENSE)
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 
 <p align="center">
