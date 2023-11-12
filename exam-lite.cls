@@ -107,11 +107,15 @@
 
 % language of the exam
 \DeclareOption{exam}{%
-    \def\examtype{1} % 1: izpit-exam, 2: kolokvij-midterm
+    \def\examtype{1} % 1: izpit-exam, 2: kolokvij-midterm, 3: seminar-seminar
 }
 % language of the midterm
 \DeclareOption{midterm}{%
     \def\examtype{2} % 1: izpit-exam, 2: kolokvij-midterm   
+}
+% language of the midterm
+\DeclareOption{seminar}{%
+    \def\examtype{3}   
 }
 
 \def\typeexam#1{\def\@typeexam{#1}}
@@ -125,8 +129,10 @@
 \DeclareOption{slovene}{%
     \if\examtype1\typeexam{IZPIT}\fi
     \if\examtype2\typeexam{VMESNI IZPIT}\fi
+    \if\examtype3\typeexam{SEMINAR}\fi
     \if\examtype1\examperiod{Vmesni izpit: }\fi
     \if\examtype2\examperiod{Izpitni rok: }\fi
+    \if\examtype3\examperiod{Seminar: }\fi
     \namesurname{Ime in Priimek: }
     \studentid{ID Študenta: }
     \instructions{NAVODILA}
@@ -192,8 +198,10 @@
 \DeclareOption{english}{%
     \if\examtype1\typeexam{EXAM}\fi
     \if\examtype2\typeexam{MIDTERM}\fi
+	\if\examtype3\typeexam{SEMINAR}\fi    
     \if\examtype1\examperiod{Exam period: }\fi
     \if\examtype2\examperiod{Midterm: }\fi
+    \if\examtype3\examperiod{Seminar: }\fi
     \namesurname{Name and Surname: }
     \studentid{Student ID: }
     \instructions{INSTRUCTIONS}
